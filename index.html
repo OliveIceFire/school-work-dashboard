@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="山东省第二中学校长工作分配与进度总控台" />
+  <title>校长工作总控台｜山东省第二中学</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="seal">二中</div>
+        <div><strong>山东省第二中学</strong><span>校长工作总控台</span></div>
+      </div>
+      <nav aria-label="主导航">
+        <button class="nav-item active" data-view="overview"><span>⌂</span>总览</button>
+        <button class="nav-item" data-view="tasks"><span>□</span>工作任务</button>
+        <button class="nav-item" data-view="departments"><span>◇</span>部门协同</button>
+        <button class="nav-item" data-view="meetings"><span>◷</span>会议与日程</button>
+        <button class="nav-item" data-view="reports"><span>▤</span>周报汇总</button>
+      </nav>
+      <div class="school-year"><span>当前学年</span><b>2026—2027</b><small>秋季学期 · 第2周</small></div>
+      <button class="profile"><span class="avatar">校</span><span><b>校长办公室</b><small>全校管理权限</small></span><i>•••</i></button>
+    </aside>
+
+    <main>
+      <header class="topbar">
+        <div>
+          <p>2026年9月8日 · 星期二</p>
+          <h1>早上好，校长</h1>
+        </div>
+        <div class="header-actions">
+          <button class="icon-btn" aria-label="通知">♢<span class="notify"></span></button>
+          <button class="primary" id="openTask">＋ 分配新任务</button>
+        </div>
+      </header>
+
+      <section id="overview" class="view active">
+        <div class="priority-card">
+          <div>
+            <span class="eyebrow">今日重点</span>
+            <h2>新学期教学秩序巡查</h2>
+            <p>上午第三节课前完成高一、高二教学楼巡查，重点检查课堂到位与设备使用情况。</p>
+          </div>
+          <div class="priority-meta"><span>负责人</span><div class="people"><i>王</i><i>李</i><b>王明远、李静</b></div></div>
+          <div class="priority-deadline"><span>今日 10:30 前</span><b>进行中</b></div>
+        </div>
+
+        <div class="metric-grid">
+          <article><span class="metric-icon navy">✓</span><div><small>本周任务</small><strong id="totalCount">24</strong><p><em>18</em> 项正常推进</p></div></article>
+          <article><span class="metric-icon gold">!</span><div><small>待我审批</small><strong>6</strong><p>2 项为紧急事项</p></div></article>
+          <article><span class="metric-icon red">◷</span><div><small>逾期任务</small><strong id="overdueCount">3</strong><p>较上周减少 2 项</p></div></article>
+          <article><span class="metric-icon green">↗</span><div><small>按时完成率</small><strong>87%</strong><p><em>↑ 5%</em> 较上周</p></div></article>
+        </div>
+
+        <div class="main-grid">
+          <section class="panel task-panel">
+            <div class="panel-head"><div><h3>重点工作进展</h3><p>需要重点关注的全校工作</p></div><button class="text-btn" data-go="tasks">查看全部 →</button></div>
+            <div class="filters" role="tablist"><button class="filter active" data-filter="all">全部</button><button class="filter" data-filter="urgent">紧急</button><button class="filter" data-filter="progress">进行中</button><button class="filter" data-filter="review">待验收</button></div>
+            <div id="taskList" class="task-list"></div>
+          </section>
+
+          <aside class="right-stack">
+            <section class="panel schedule">
+              <div class="panel-head"><div><h3>今日日程</h3><p>9月8日</p></div><button class="round-btn">＋</button></div>
+              <div class="timeline">
+                <div class="event now"><time>09:00</time><div><b>行政办公会</b><span>第一会议室 · 8人</span></div></div>
+                <div class="event"><time>11:00</time><div><b>高三年级工作沟通</b><span>校长办公室 · 4人</span></div></div>
+                <div class="event"><time>14:30</time><div><b>校园安全专项检查</b><span>全校区域 · 保卫处</span></div></div>
+                <div class="event"><time>16:10</time><div><b>青年教师座谈会</b><span>学术报告厅 · 20人</span></div></div>
+              </div>
+            </section>
+            <section class="panel progress-card">
+              <div class="panel-head"><div><h3>部门完成情况</h3><p>本周任务按时完成率</p></div></div>
+              <div class="bar-row"><span>教务处</span><div><i style="width:92%"></i></div><b>92%</b></div>
+              <div class="bar-row"><span>政教处</span><div><i style="width:86%"></i></div><b>86%</b></div>
+              <div class="bar-row"><span>总务处</span><div><i style="width:78%"></i></div><b>78%</b></div>
+              <div class="bar-row"><span>办公室</span><div><i style="width:95%"></i></div><b>95%</b></div>
+            </section>
+          </aside>
+        </div>
+      </section>
+
+      <section id="tasks" class="view">
+        <div class="page-head"><div><span class="eyebrow dark">工作任务</span><h2>全校任务台账</h2><p>按责任部门、负责人和截止时间统一跟进。</p></div><button class="primary" id="openTask2">＋ 分配新任务</button></div>
+        <div class="panel full-table">
+          <div class="table-tools"><input id="searchTask" placeholder="搜索任务或负责人" /><select id="statusSelect"><option value="all">全部状态</option><option value="progress">进行中</option><option value="review">待验收</option><option value="urgent">紧急</option></select></div>
+          <div id="fullTaskList" class="task-list"></div>
+        </div>
+      </section>
+
+      <section id="departments" class="view">
+        <div class="page-head"><div><span class="eyebrow dark">部门协同</span><h2>部门工作看板</h2><p>快速判断工作量、进度和风险。</p></div></div>
+        <div class="department-grid" id="departmentGrid"></div>
+      </section>
+
+      <section id="meetings" class="view"><div class="page-head"><div><span class="eyebrow dark">会议与日程</span><h2>本周会议安排</h2><p>把会议和后续任务连接起来。</p></div></div><div class="panel calendar"><div class="week-head"><button>‹</button><h3>2026年9月 · 第2周</h3><button>›</button></div><div class="week-grid" id="weekGrid"></div></div></section>
+
+      <section id="reports" class="view"><div class="page-head"><div><span class="eyebrow dark">周报汇总</span><h2>本周校务简报</h2><p>根据各部门工作完成情况自动形成校长摘要。</p></div><button class="secondary" id="copyReport">复制简报</button></div><article class="panel report"><h3>第2周校务工作摘要</h3><p>本周共推进24项重点工作，18项按计划进行，3项已完成待验收，3项存在逾期风险。办公室与教务处整体推进较好；总务处“食堂燃气安全整改”需在周三前完成复查。</p><h4>需要校长关注</h4><ul><li>确认高三月考组织方案及考场安排。</li><li>协调校园安全专项检查中的两处整改事项。</li><li>审批青年教师培养计划与导师名单。</li></ul><h4>下周提前安排</h4><p>启动家长开放日筹备，明确政教处牵头、各年级配合；完成秋季运动会工作小组分工。</p></article></section>
+    </main>
+  </div>
+
+  <dialog id="taskDialog">
+    <form id="taskForm">
+      <div class="dialog-head"><div><span class="eyebrow dark">新增工作</span><h2>分配新任务</h2></div><button type="button" class="close" id="closeTask">×</button></div>
+      <label>任务名称<input name="title" required placeholder="例如：完成高一家长会方案" /></label>
+      <div class="form-row"><label>责任部门<select name="department"><option>教务处</option><option>政教处</option><option>总务处</option><option>办公室</option><option>高一年级</option><option>高二年级</option><option>高三年级</option></select></label><label>负责人<input name="owner" required placeholder="姓名" /></label></div>
+      <div class="form-row"><label>截止时间<input name="due" type="date" required value="2026-09-10" /></label><label>优先级<select name="priority"><option value="normal">普通</option><option value="urgent">紧急</option></select></label></div>
+      <label>工作要求<textarea name="detail" rows="3" placeholder="写清交付结果和检查标准"></textarea></label>
+      <div class="dialog-actions"><button type="button" class="secondary" id="cancelTask">取消</button><button class="primary">确认分配</button></div>
+    </form>
+  </dialog>
+  <div class="toast" id="toast">任务已分配并加入台账</div>
+  <script src="app.js"></script>
+</body>
+</html>
